@@ -130,9 +130,9 @@
 (setf (liber:alias-for-symbol 'glyph)
       "Type"
       (liber:symbol-documentation 'glyph)
- "@version{2025-08-24}
+ "@version{2025-12-09}
   @begin{short}
-    A @sym{pango:glyph} type represents a single glyph in the output form of
+    The @sym{pango:glyph} type represents a single glyph in the output form of
     a string.
   @end{short}
   This type is implemented as the @code{:uint32} foreign type.
@@ -251,9 +251,9 @@
 (setf (liber:alias-for-class 'glyph-item)
       "GBoxed"
       (documentation 'glyph-item 'type)
- "@version{2024-03-06}
+ "@version{2025-12-09}
   @begin{short}
-    A @class{pango:glyph-item} structure is a pair of a @class{pango:item}
+    The @class{pango:glyph-item} structure is a pair of a @class{pango:item}
     instance and the glyphs resulting from shaping the text corresponding to
     an item.
   @end{short}
@@ -333,40 +333,35 @@
 
 ;;; ----------------------------------------------------------------------------
 ;;; pango_glyph_string_new ()
-;;;
-;;; PangoGlyphString * pango_glyph_string_new (void);
-;;;
-;;; Create a new PangoGlyphString.
-;;;
-;;; Returns :
-;;;     the newly allocated PangoGlyphString, which should be freed with
-;;;     pango_glyph_string_free().
 ;;; ----------------------------------------------------------------------------
 
 (cffi:defcfun ("pango_glyph_string_new" %glyph-string-new) :pointer)
 
 (cffi:defcfun ("pango_glyph_string_new" glyph-string-new)
-    (g:boxed glyph-string :return))
+    (g:boxed glyph-string :return)
+ #+liber-documentation
+ "@version{#2025-12-09}
+  @return{The newly allocated @class{pango:glyph-string} instance.}
+  @short{Creates a new glyph string.}
+  @see-class{pango:glyph-string}")
 
 (export 'glyph-string-new)
 
 ;;; ----------------------------------------------------------------------------
 ;;; pango_glyph_string_copy ()
-;;;
-;;; PangoGlyphString * pango_glyph_string_copy (PangoGlyphString *string);
-;;;
-;;; Copy a glyph string and associated storage.
-;;;
-;;; string :
-;;;     a PangoGlyphString, may be NULL
-;;;
-;;; Returns :
-;;;     the newly allocated PangoGlyphString, which should be freed with
-;;;     pango_glyph_string_free(), or NULL if string was NULL.
 ;;; ----------------------------------------------------------------------------
 
 (cffi:defcfun ("pango_glyph_string_copy" glyph-string-copy)
     (g:boxed glyph-string :return)
+ #+liber-documentation
+ "@version{#2025-12-09}
+  @argument[str]{a @class{pango:glyph-string} instance, may be nil}
+  @begin{return}
+    The newly allocated @class{pango:glyph-string} instance, or @code{nil} if
+    @arg{str} is @code{nil}.
+  @end{return}
+  @short{Copies a glyph string and associated storage.}
+  @see-class{pango:glyph-string}"
   (string (g:boxed glyph-string)))
 
 (export 'glyph-string-copy)
