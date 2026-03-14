@@ -935,7 +935,7 @@
                         :void)
   indent)
 
-(cffi:defcfun ("pango_layout_get_ident" layout-indent) :int
+(cffi:defcfun ("pango_layout_get_indent" layout-indent) :int
  #+liber-documentation
  "@version{#2025-08-24}
   @syntax{(pango:layout-indent layout) => indent}
@@ -1206,7 +1206,7 @@ baseline2 = baseline1 + factor * height2
 ;;; ----------------------------------------------------------------------------
 
 (defun (setf layout-single-paragraph-mode) (setting layout)
-  (cffi:foreign-funcall "layout-single-paragraph-mode"
+  (cffi:foreign-funcall "pango_layout_set_single_paragraph_mode"
                         (g:object layout) layout
                         :boolean setting
                         :void)
@@ -2477,7 +2477,7 @@ baseline2 = baseline1 + factor * height2
 ;;; ----------------------------------------------------------------------------
 
 #+pango-1-50
-(cffi:defcfun ("pango_layout_line_start_index" layout-line-start-index) :int
+(cffi:defcfun ("pango_layout_line_get_start_index" layout-line-start-index) :int
  #+liber-documentation
  "@version{#2025-08-24}
   @argument[line]{a @class{pango:layout-line} instance}

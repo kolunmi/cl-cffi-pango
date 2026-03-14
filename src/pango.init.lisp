@@ -24,25 +24,25 @@
 
 (in-package :pango)
 
-(glib-init:at-init ()
-  (eval-when (:compile-toplevel :load-toplevel :execute)
-    (cffi:define-foreign-library pango
-      ((:and :unix (:not :darwin)) "libpango-1.0.so.0")
-      (:darwin (:or "libpango-1.0.0.dylib" "libpango-1.0.dylib"))
-      (:windows "libpango-1.0-0.dll")
-      (t (:default "libgpango-1.0"))))
+;; (glib-init:at-init ()
+;;   (eval-when (:compile-toplevel :load-toplevel :execute)
+;;     (cffi:define-foreign-library pango
+;;       ((:and :unix (:not :darwin)) "libpango-1.0.so.0")
+;;       (:darwin (:or "libpango-1.0.0.dylib" "libpango-1.0.dylib"))
+;;       (:windows "libpango-1.0-0.dll")
+;;       (t (:default "libgpango-1.0"))))
+;;
+;;   (cffi:use-foreign-library pango))
 
-  (cffi:use-foreign-library pango))
-
-(glib-init:at-init ()
-  (eval-when (:compile-toplevel :load-toplevel :execute)
-    (cffi:define-foreign-library pangocairo
-      ((:and :unix (:not :darwin)) "libpangocairo-1.0.so.0")
-      (:darwin (:or "libpangocairo-1.0.0.dylib" "libpangocairo-1.0.dylib"))
-      (:windows "libpangocairo-1.0-0.dll")
-      (t (:default "libgpangocairo-1.0"))))
-
-  (cffi:use-foreign-library pangocairo))
+;; (glib-init:at-init ()
+;;   (eval-when (:compile-toplevel :load-toplevel :execute)
+;;     (cffi:define-foreign-library pangocairo
+;;       ((:and :unix (:not :darwin)) "libpangocairo-1.0.so.0")
+;;       (:darwin (:or "libpangocairo-1.0.0.dylib" "libpangocairo-1.0.dylib"))
+;;       (:windows "libpangocairo-1.0-0.dll")
+;;       (t (:default "libgpangocairo-1.0"))))
+;;
+;;   (cffi:use-foreign-library pangocairo))
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
   ;; push the hostname on *features*

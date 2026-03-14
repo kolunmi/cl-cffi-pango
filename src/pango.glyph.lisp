@@ -475,7 +475,7 @@
 ;;;     NULL to indicate that the result is not needed
 ;;; ----------------------------------------------------------------------------
 
-(cffi:defcfun ("pango_glyph_string_extents-range" %glyph-string-extents-range)
+(cffi:defcfun ("pango_glyph_string_extents_range" %glyph-string-extents-range)
     :void
   (glyph (g:boxed glyph-string))
   (start :int)
